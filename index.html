@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="ca">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mòdul EEB0-0968 - Repositori de Recursos</title>
+  <style>
+    :root {
+      --primary: #0284c7;
+      --primary-hover: #0369a1;
+      --bg: #f8fafc;
+      --surface: #ffffff;
+      --text: #0f172a;
+      --text-muted: #64748b;
+      --border: #e2e8f0;
+      --radius: 12px;
+      --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -2px rgba(0, 0, 0, 0.05);
+      --shadow-hover: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -4px rgba(0, 0, 0, 0.05);
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; background: var(--bg); color: var(--text); line-height: 1.6; }
+
+    /* Header Millorat */
+    header { 
+      background: linear-gradient(135deg, #0f172a 0%, #0369a1 50%, #0284c7 100%); 
+      color: white; 
+      padding: 3.5rem 1.5rem 3rem; 
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    header::before {
+      content: "";
+      position: absolute;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background-image: radial-gradient(rgba(255, 255, 255, 0.1) 1px, transparent 1px);
+      background-size: 24px 24px;
+      opacity: 0.6;
+      pointer-events: none;
+    }
+
+    .header-container {
+      position: relative;
+      z-index: 1;
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    .header-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      background: rgba(255, 255, 255, 0.12);
+      border: 1px solid rgba(255, 255, 255, 0.25);
+      backdrop-filter: blur(8px);
+      padding: 0.35rem 0.9rem;
+      border-radius: 9999px;
+      font-size: 0.825rem;
+      font-weight: 600;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      margin-bottom: 1rem;
+      color: #7dd3fc;
+    }
+
+    header h1 { 
+      font-size: 2.5rem; 
+      font-weight: 800; 
+      letter-spacing: -0.03em; 
+      margin-bottom: 0.75rem; 
+      line-height: 1.15;
+      text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    }
+
+    header p { 
+      opacity: 0.92; 
+      font-size: 1.1rem; 
+      max-width: 620px; 
+      margin: 0 auto;
+      font-weight: 400;
+      color: #e0f2fe;
+    }
+
+    /* Navegació */
+    nav { background: var(--surface); border-bottom: 1px solid var(--border); display: flex; justify-content: center; gap: 0.5rem; padding: 0.75rem 1rem; position: sticky; top: 0; z-index: 10; box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05); flex-wrap: wrap; }
+    nav button { background: transparent; border: none; padding: 0.6rem 1.2rem; font-size: 0.95rem; font-weight: 600; color: var(--text-muted); cursor: pointer; border-radius: 8px; transition: all 0.2s ease; }
+    nav button:hover { background: #f1f5f9; color: var(--primary); }
+    nav button.active { background: #e0f2fe; color: var(--primary); }
+
+    /* Contingut Principal */
+    main { max-width: 900px; margin: 2rem auto; padding: 0 1.5rem; }
+    .unit-section { display: none; }
+    .unit-section.active { display: block; animation: fadeIn 0.3s ease; }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(4px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .unit-card { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); padding: 1.8rem; margin-bottom: 2rem; box-shadow: var(--shadow); }
+    h2 { color: var(--primary); font-size: 1.5rem; font-weight: 700; margin-bottom: 0.5rem; display: flex; align-items: center; gap: 0.5rem; }
+    .unit-desc { color: var(--text-muted); font-size: 0.95rem; margin-bottom: 1.8rem; }
+
+    h3 { font-size: 1.05rem; font-weight: 700; color: #334155; text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 1rem; }
+
+    /* Agrupació Temàtica */
+    .topic-group { background: #f8fafc; border: 1px solid var(--border); border-radius: 10px; padding: 1.2rem; margin-bottom: 1.25rem; }
+    .topic-title { font-size: 1rem; font-weight: 700; color: #1e293b; margin-bottom: 0.8rem; display: flex; align-items: center; gap: 0.5rem; }
+    
+    /* Grid de Recursos */
+    .resource-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 0.8rem; }
+    
+    .resource-item { display: flex; align-items: center; justify-content: space-between; padding: 0.85rem 1.1rem; background: #fff; border: 1px solid var(--border); border-radius: 8px; transition: all 0.2s ease; text-decoration: none; color: inherit; }
+    .resource-item:hover { border-color: var(--primary-hover); transform: translateY(-2px); box-shadow: var(--shadow-hover); }
+    
+    .resource-info { display: flex; align-items: center; gap: 0.8rem; }
+    .badge { font-size: 0.75rem; font-weight: 700; padding: 0.25rem 0.6rem; border-radius: 6px; text-transform: uppercase; letter-spacing: 0.025em; }
+    .badge-pdf { background: #fef2f2; color: #dc2626; border: 1px solid #fecaca; }
+    .badge-sim { background: #fefce8; color: #ca8a04; border: 1px solid #fef08a; }
+    .badge-doc { background: #f0fdf4; color: #16a34a; border: 1px solid #bbf7d0; }
+
+    .resource-title { font-weight: 600; font-size: 0.95rem; color: var(--text); }
+    .resource-arrow { color: var(--text-muted); font-size: 1.1rem; transition: transform 0.2s ease; }
+    .resource-item:hover .resource-arrow { transform: translateX(4px); color: var(--primary); }
+
+    /* Empty state */
+    .empty-state { text-align: center; padding: 2rem; color: var(--text-muted); font-style: italic; background: #f8fafc; border: 1px dashed var(--border); border-radius: 8px; }
+
+    /* Footer */
+    footer { text-align: center; padding: 2.5rem 1rem; color: var(--text-muted); font-size: 0.875rem; border-top: 1px solid var(--border); margin-top: 4rem; }
+    footer a { color: var(--primary); text-decoration: none; font-weight: 500; }
+    footer a:hover { text-decoration: underline; }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="header-container">
+      <div class="header-badge">⚙️ Mòdul Formatiu EEB0-0968</div>
+      <h1>Automatització i Sistemes</h1>
+      <p>Repositori de Documentació Complementària, Guies i Simuladors Online</p>
+    </div>
+  </header>
+
+  <nav>
+    <button class="nav-btn active" onclick="switchTab('a1')">A1: Grafcet i Guia GEMMA</button>
+    <button class="nav-btn" onclick="switchTab('a2')">A2</button>
+    <button class="nav-btn" onclick="switchTab('a3')">A3</button>
+    <button class="nav-btn" onclick="switchTab('a4')">A4</button>
+    <button class="nav-btn" onclick="switchTab('altres')">Altres</button>
+  </nav>
+
+  <main>
+    <!-- APARTAT A1 -->
+    <section id="a1" class="unit-section active">
+      <div class="unit-card">
+        <h2>📊 A1. Grafcet i Guia GEMMA</h2>
+        <p class="unit-desc">Modelatge de sistemes seqüencials, desenvolupament de Grafcet i estructuració de modes de marxa/aturada (Guia GEMMA).</p>
+        
+        <h3>Recursos i Material per Temes</h3>
+
+        <!-- Tema d'exemple 1 -->
+        <div class="topic-group">
+          <div class="topic-title">📌 Sistemes Seqüencials i Grafcet</div>
+          <div class="resource-grid">
+            <a href="A1/A1_Introduccio_Grafcet.pdf" target="_blank" class="resource-item">
+              <div class="resource-info">
+                <span class="badge badge-pdf">PDF</span>
+                <span class="resource-title">Introducció al Grafcet</span>
+              </div>
+              <span class="resource-arrow">→</span>
+            </a>
+            <a href="A1/simulador_grafcet.html" target="_blank" class="resource-item">
+              <div class="resource-info">
+                <span class="badge badge-sim">Simulador</span>
+                <span class="resource-title">Simulador de Grafcet</span>
+              </div>
+              <span class="resource-arrow">→</span>
+            </a>
+          </div>
+        </div>
+
+        <!-- Tema d'exemple 2 -->
+        <div class="topic-group">
+          <div class="topic-title">📌 Guia GEMMA</div>
+          <div class="resource-grid">
+            <a href="A1/A1_Guia_GEMMA.pdf" target="_blank" class="resource-item">
+              <div class="resource-info">
+                <span class="badge badge-pdf">PDF</span>
+                <span class="resource-title">Estructuració i Modes de Marxa (GEMMA)</span>
+              </div>
+              <span class="resource-arrow">→</span>
+            </a>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- APARTAT A2 -->
+    <section id="a2" class="unit-section">
+      <div class="unit-card">
+        <h2>⚙️ Apartat A2</h2>
+        <p class="unit-desc">Documentació i continguts corresponents a l'apartat A2.</p>
+        
+        <h3>Recursos i Material</h3>
+        <div class="empty-state">Encara no s'han penjat recursos per a aquest apartat.</div>
+      </div>
+    </section>
+
+    <!-- APARTAT A3 -->
+    <section id="a3" class="unit-section">
+      <div class="unit-card">
+        <h2>🔧 Apartat A3</h2>
+        <p class="unit-desc">Documentació i continguts corresponents a l'apartat A3.</p>
+        
+        <h3>Recursos i Material</h3>
+        <div class="empty-state">Encara no s'han penjat recursos per a aquest apartat.</div>
+      </div>
+    </section>
+
+    <!-- APARTAT A4 -->
+    <section id="a4" class="unit-section">
+      <div class="unit-card">
+        <h2>💡 Apartat A4</h2>
+        <p class="unit-desc">Documentació i continguts corresponents a l'apartat A4.</p>
+        
+        <h3>Recursos i Material</h3>
+        <div class="empty-state">Encara no s'han penjat recursos per a aquest apartat.</div>
+      </div>
+    </section>
+
+    <!-- ALTRES RECURSOS -->
+    <section id="altres" class="unit-section">
+      <div class="unit-card">
+        <h2>📁 Altres Recursos i Programari</h2>
+        <p class="unit-desc">Programari recomanat, manuals d'usuari i enllaços d'interès general.</p>
+        
+        <h3>Recursos Generals</h3>
+        <div class="resource-grid">
+          <a href="Altres/Guia_Usuari.pdf" target="_blank" class="resource-item">
+            <div class="resource-info">
+              <span class="badge badge-doc">DOC</span>
+              <span class="resource-title">Guia i Normativa del Mòdul</span>
+            </div>
+            <span class="resource-arrow">→</span>
+          </a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p>Tot el material d'aquest lloc web està publicat sota llicència <a href="https://creativecommons.org/licenses/by-sa/4.0/deed.ca" target="_blank" rel="noopener">Creative Commons Reconeixement-CompartirIgual 4.0 Internacional (CC BY-SA 4.0)</a>.</p>
+  </footer>
+
+  <script>
+    function switchTab(tabId) {
+      document.querySelectorAll('.unit-section').forEach(s => s.classList.remove('active'));
+      document.querySelectorAll('.nav-btn').forEach(b => b.classList.remove('active'));
+      document.getElementById(tabId).classList.add('active');
+      event.target.classList.add('active');
+    }
+  </script>
+</body>
+</html>
