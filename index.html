@@ -117,9 +117,12 @@
     
     .resource-info { display: flex; align-items: center; gap: 0.8rem; }
     .badge { font-size: 0.75rem; font-weight: 700; padding: 0.25rem 0.6rem; border-radius: 6px; text-transform: uppercase; letter-spacing: 0.025em; }
+    
+    /* Tipus de Badges */
     .badge-pdf { background: #fef2f2; color: #dc2626; border: 1px solid #fecaca; }
     .badge-sim { background: #fefce8; color: #ca8a04; border: 1px solid #fef08a; }
     .badge-doc { background: #f0fdf4; color: #16a34a; border: 1px solid #bbf7d0; }
+    .badge-link { background: #f0f9ff; color: #0284c7; border: 1px solid #bae6fd; } /* Nova Badge per enllaços webs */
 
     .resource-title { font-weight: 600; font-size: 0.95rem; color: var(--text); }
     .resource-arrow { color: var(--text-muted); font-size: 1.1rem; transition: transform 0.2s ease; }
@@ -140,7 +143,7 @@
     <div class="header-container">
       <div class="header-badge">⚙️ Mòdul Formatiu EEB0-0968</div>
       <h1>Automatització i Sistemes</h1>
-      <p>Repositori de Documentació Complementària, Guies i Simuladors Online</p>
+      <p>Repositori de Documentació, Simuladors i Enllaços d'Interès</p>
     </div>
   </header>
 
@@ -161,7 +164,7 @@
         
         <h3>Recursos i Material per Temes</h3>
 
-        <!-- Tema d'exemple 1 -->
+        <!-- Tema 1: Grafcet -->
         <div class="topic-group">
           <div class="topic-title">📌 Sistemes Seqüencials i Grafcet</div>
           <div class="resource-grid">
@@ -179,10 +182,17 @@
               </div>
               <span class="resource-arrow">→</span>
             </a>
+            <a href="https://grafcet.online" target="_blank" class="resource-item">
+              <div class="resource-info">
+                <span class="badge badge-link">Enllaç</span>
+                <span class="resource-title">Editor de Grafcet Online (Grafcet.online)</span>
+              </div>
+              <span class="resource-arrow">→</span>
+            </a>
           </div>
         </div>
 
-        <!-- Tema d'exemple 2 -->
+        <!-- Tema 2: Guia GEMMA -->
         <div class="topic-group">
           <div class="topic-title">📌 Guia GEMMA</div>
           <div class="resource-grid">
@@ -190,6 +200,13 @@
               <div class="resource-info">
                 <span class="badge badge-pdf">PDF</span>
                 <span class="resource-title">Estructuració i Modes de Marxa (GEMMA)</span>
+              </div>
+              <span class="resource-arrow">→</span>
+            </a>
+            <a href="https://www.gemma-automation.org" target="_blank" class="resource-item">
+              <div class="resource-info">
+                <span class="badge badge-link">Enllaç</span>
+                <span class="resource-title">Documentació Oficial Guia GEMMA</span>
               </div>
               <span class="resource-arrow">→</span>
             </a>
@@ -232,18 +249,27 @@
       </div>
     </section>
 
-    <!-- ALTRES RECURSOS -->
+    <!-- ALTRES RECURSOS I ENLLAÇOS -->
     <section id="altres" class="unit-section">
       <div class="unit-card">
-        <h2>📁 Altres Recursos i Programari</h2>
-        <p class="unit-desc">Programari recomanat, manuals d'usuari i enllaços d'interès general.</p>
+        <h2>📁 Altres Recursos, Enllaços i Programari</h2>
+        <p class="unit-desc">Programari recomanat, manuals d'usuari i enllaços d'interès general per al mòdul.</p>
         
-        <h3>Recursos Generals</h3>
+        <h3>Recursos Generals i Web</h3>
         <div class="resource-grid">
           <a href="Altres/Guia_Usuari.pdf" target="_blank" class="resource-item">
             <div class="resource-info">
               <span class="badge badge-doc">DOC</span>
               <span class="resource-title">Guia i Normativa del Mòdul</span>
+            </div>
+            <span class="resource-arrow">→</span>
+          </a>
+
+          <!-- Exemple d'enllaç extern general -->
+          <a href="https://xtec.gencat.cat" target="_blank" class="resource-item">
+            <div class="resource-info">
+              <span class="badge badge-link">Enllaç</span>
+              <span class="resource-title">Portal Educatiu XTEC</span>
             </div>
             <span class="resource-arrow">→</span>
           </a>
