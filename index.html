@@ -121,13 +121,14 @@
     .resource-item:hover { border-color: var(--primary-hover); transform: translateY(-2px); box-shadow: var(--shadow-hover); }
     
     .resource-info { display: flex; align-items: center; gap: 0.8rem; }
-    .badge { font-size: 0.75rem; font-weight: 700; padding: 0.25rem 0.6rem; border-radius: 6px; text-transform: uppercase; letter-spacing: 0.025em; }
+    .badge { font-size: 0.75rem; font-weight: 700; padding: 0.25rem 0.6rem; border-radius: 6px; text-transform: uppercase; letter-spacing: 0.025em; white-space: nowrap; }
     
     /* Tipus de Badges */
     .badge-pdf { background: #fef2f2; color: #dc2626; border: 1px solid #fecaca; }
-    .badge-sim { background: #fefce8; color: #ca8a04; border: 1px solid #fef08a; }
+    .badge-sim { background: #fef08a; color: #854d0e; border: 1px solid #facc15; }
     .badge-doc { background: #f0fdf4; color: #16a34a; border: 1px solid #bbf7d0; }
     .badge-link { background: #f0f9ff; color: #0284c7; border: 1px solid #bae6fd; }
+    .badge-resource { background: #f3e8ff; color: #7e22ce; border: 1px solid #e9d5ff; }
 
     /* Badges de tipus de contingut pedagògic */
     .badge-theory { background: #eff6ff; color: #1d4ed8; border: 1px solid #bfdbfe; }
@@ -217,44 +218,47 @@
                 </div>
                 <span class="resource-arrow">→</span>
               </a>
+              <a href="simulador_planta_quimica.html" target="_blank" class="resource-item">
+                <div class="resource-info">
+                  <span class="badge badge-sim">Simulador</span>
+                  <span class="resource-title">Planta Química de Dosificació i Reacció</span>
+                </div>
+                <span class="resource-arrow">→</span>
+              </a>
             </div>
           </div>
 
           <!-- Subgrup Activitats -->
-<div class="topic-subgroup">
-  <div class="topic-subgroup-title">✏️ Activitats i Exercicis</div>
-  <div class="resource-grid">
+          <div class="topic-subgroup">
+            <div class="topic-subgroup-title">✏️ Activitats i Exercicis</div>
+            <div class="resource-grid">
+              <a href="A1/Act01_Marcatge_Peces" target="_blank" class="resource-item">
+                <div class="resource-info">
+                  <span class="badge badge-activity">Activitat</span>
+                  <span class="resource-title">Activitat 1: Marcatge de peces</span>
+                </div>
+                <span class="resource-arrow">→</span>
+              </a>
 
-    <!-- Activitat 1: Document o exercici en PDF -->
-    <a href="A1/Act01_Marcatge_Peces" target="_blank" class="resource-item">
-      <div class="resource-info">
-        <span class="badge badge-activity">Activitat</span>
-        <span class="resource-title">Activitat 1: Marcatge de peces</span>
-      </div>
-      <span class="resource-arrow">→</span>
-    </a>
+              <a href="A1/Act02_GrafcetAmbBasculesRS" target="_blank" class="resource-item">
+                <div class="resource-info">
+                  <span class="badge badge-activity">Activitat</span>
+                  <span class="resource-title">Activitat 2: Grafcet amb bàscules RS</span>
+                </div>
+                <span class="resource-arrow">→</span>
+              </a>
+              
+              <a href="A1/Act03_EtiquetatgePaquets" target="_blank" class="resource-item">
+                <div class="resource-info">
+                  <span class="badge badge-activity">Activitat</span>
+                  <span class="resource-title">Activitat 3: Etiquetatge de paquets</span>
+                </div>
+                <span class="resource-arrow">→</span>
+              </a>
+            </div>
+          </div>
+        </div>
 
-    <!-- Activitat 2: Act02_GrafcetAmbBasculesRS -->
-    <a href="A1/Act02_GrafcetAmbBasculesRS" target="_blank" class="resource-item">
-      <div class="resource-info">
-        <span class="badge badge-activity">Activitat</span>
-        <span class="resource-title">Activitat 2: Grafcet amb bàscules RS</span>
-      </div>
-      <span class="resource-arrow">→</span>
-    </a>
-    
-    <!-- Activitat 3: Act03_EtiquetatgePaquets -->
-    <a href="A1/Act03_EtiquetatgePaquets" target="_blank" class="resource-item">
-      <div class="resource-info">
-        <span class="badge badge-activity">Activitat</span>
-        <span class="resource-title">Activitat 3: Etiquetatge de paquets</span>
-      </div>
-      <span class="resource-arrow">→</span>
-    </a>
-
-
-  </div>
-</div>
         <!-- Tema 2: Guia GEMMA -->
         <div class="topic-group">
           <div class="topic-title">📌 Guia GEMMA</div>
@@ -272,12 +276,11 @@
               </a>
               <a href="A1/FullGuiaGEMMA.png" target="_blank" class="resource-item">
                 <div class="resource-info">
-                  <span class="badge badge-pdf">JPG</span>
+                  <span class="badge badge-resource">Recursos</span>
                   <span class="resource-title">Full Guia Gemma</span>
                 </div>
                 <span class="resource-arrow">→</span>
               </a>
-       
             </div>
           </div>
 
@@ -319,7 +322,7 @@
               
               <a href="simulador_marcatge_peces.html" target="_blank" class="resource-item">
                 <div class="resource-info">
-                  <span class="badge badge-link">Simulador</span>
+                  <span class="badge badge-sim">Simulador</span>
                   <span class="resource-title">Marcatge de peces</span>
                 </div>
                 <span class="resource-arrow">→</span>
@@ -331,16 +334,15 @@
           <div class="topic-subgroup">
             <div class="topic-subgroup-title">✏️ Activitats i Exercicis</div>
             <div class="resource-grid">
-              <a href="A2/Act04_SelectorDeCaixes.pdf" target="_blank" class="resource-item">				  
+              <a href="A2/Act04_SelectorDeCaixes.pdf" target="_blank" class="resource-item">                  
                 <div class="resource-info">
                   <span class="badge badge-pdf">PDF</span>
                   <span class="resource-title">Activitat 4. Selector de caixes</span>
                 </div>
                 <span class="resource-arrow">→</span>
               </a>
-              
-              
-
+            </div>
+          </div>
         </div>
 
       </div>
@@ -354,78 +356,75 @@
         
         <h3>Recursos i Material</h3>
      
-              <!-- Subgrup Activitats -->
-          <div class="topic-subgroup">
-            <div class="topic-subgroup-title">✏️ Activitats i Exercicis</div>
-            <div class="resource-grid">
-              <a href="A2/EnunciatsMiniMaquetes.pdf" target="_blank" class="resource-item">				  
-                <div class="resource-info">
-                  <span class="badge badge-pdf">Activitat</span>
-                  <span class="resource-title">Enunciat Mini maquetes</span>
-                </div>
-                <span class="resource-arrow">→</span>
-              </a>
-              
-              <a href="A2/EnunciatHMI.pdf" target="_blank" class="resource-item">				  
-                <div class="resource-info">
-                  <span class="badge badge-pdf">Activitat</span>
-                  <span class="resource-title">Enunciat HMI</span>
-                </div>
-                <span class="resource-arrow">→</span>
-              </a>
-              
-              <a href="A2/EstacioDistribucio.pdf" target="_blank" class="resource-item">				  
-                <div class="resource-info">
-                  <span class="badge badge-pdf">Activitat</span>
-                  <span class="resource-title">Estació Distribució</span>
-                </div>
-                <span class="resource-arrow">→</span>
-              </a>
-              
-              <a href="A2/EstacioVerificació.pdf" target="_blank" class="resource-item">				  
-                <div class="resource-info">
-                  <span class="badge badge-pdf">Activitat</span>
-                  <span class="resource-title">Estació Verificació</span>
-                </div>
-                <span class="resource-arrow">→</span>
-              </a>
-              
-              <a href="A2/EstacioProcessat.pdf" target="_blank" class="resource-item">				  
-                <div class="resource-info">
-                  <span class="badge badge-pdf">Activitat</span>
-                  <span class="resource-title">Estació Processat</span>
-                </div>
-                <span class="resource-arrow">→</span>
-              </a>
-              
-              <a href="A2/EstacioMesura.pdf" target="_blank" class="resource-item">				  
-                <div class="resource-info">
-                  <span class="badge badge-pdf">Activitat</span>
-                  <span class="resource-title">Estació Mesurar</span>
-                </div>
-                <span class="resource-arrow">→</span>
-              </a>
-              
-              <a href="A2/EstacioPickAndPlace.pdf" target="_blank" class="resource-item">				  
-                <div class="resource-info">
-                  <span class="badge badge-pdf">Activitat</span>
-                  <span class="resource-title">Estació Pick and Place</span>
-                </div>
-                <span class="resource-arrow">→</span>
-              </a>
-              
-              <a href="A2/EstacioSeparacio.pdf" target="_blank" class="resource-item">				  
-                <div class="resource-info">
-                  <span class="badge badge-pdf">Activitat</span>
-                  <span class="resource-title">Estació Separació</span>
-                </div>
-                <span class="resource-arrow">→</span>
-              </a>
-              
-            </div>
+        <!-- Subgrup Activitats -->
+        <div class="topic-subgroup">
+          <div class="topic-subgroup-title">✏️ Activitats i Exercicis</div>
+          <div class="resource-grid">
+            <a href="A2/EnunciatsMiniMaquetes.pdf" target="_blank" class="resource-item">                  
+              <div class="resource-info">
+                <span class="badge badge-pdf">Activitat</span>
+                <span class="resource-title">Enunciat Mini maquetes</span>
+              </div>
+              <span class="resource-arrow">→</span>
+            </a>
+            
+            <a href="A2/EnunciatHMI.pdf" target="_blank" class="resource-item">                  
+              <div class="resource-info">
+                <span class="badge badge-pdf">Activitat</span>
+                <span class="resource-title">Enunciat HMI</span>
+              </div>
+              <span class="resource-arrow">→</span>
+            </a>
+            
+            <a href="A2/EstacioDistribucio.pdf" target="_blank" class="resource-item">                  
+              <div class="resource-info">
+                <span class="badge badge-pdf">Activitat</span>
+                <span class="resource-title">Estació Distribució</span>
+              </div>
+              <span class="resource-arrow">→</span>
+            </a>
+            
+            <a href="A2/EstacioVerificació.pdf" target="_blank" class="resource-item">                  
+              <div class="resource-info">
+                <span class="badge badge-pdf">Activitat</span>
+                <span class="resource-title">Estació Verificació</span>
+              </div>
+              <span class="resource-arrow">→</span>
+            </a>
+            
+            <a href="A2/EstacioProcessat.pdf" target="_blank" class="resource-item">                  
+              <div class="resource-info">
+                <span class="badge badge-pdf">Activitat</span>
+                <span class="resource-title">Estació Processat</span>
+              </div>
+              <span class="resource-arrow">→</span>
+            </a>
+            
+            <a href="A2/EstacioMesura.pdf" target="_blank" class="resource-item">                  
+              <div class="resource-info">
+                <span class="badge badge-pdf">Activitat</span>
+                <span class="resource-title">Estació Mesurar</span>
+              </div>
+              <span class="resource-arrow">→</span>
+            </a>
+            
+            <a href="A2/EstacioPickAndPlace.pdf" target="_blank" class="resource-item">                  
+              <div class="resource-info">
+                <span class="badge badge-pdf">Activitat</span>
+                <span class="resource-title">Estació Pick and Place</span>
+              </div>
+              <span class="resource-arrow">→</span>
+            </a>
+            
+            <a href="A2/EstacioSeparacio.pdf" target="_blank" class="resource-item">                  
+              <div class="resource-info">
+                <span class="badge badge-pdf">Activitat</span>
+                <span class="resource-title">Estació Separació</span>
+              </div>
+              <span class="resource-arrow">→</span>
+            </a>
           </div>
-            </div>
-          </div>
+        </div>
       </div>
     </section>
 
